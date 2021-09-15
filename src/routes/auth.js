@@ -13,6 +13,6 @@ router.get('/', (req, res) => {
   } else {
     res.status(401).send({ msg: "Unauthorized" });
   }
-});
+}); 
 
 module.exports = router;
