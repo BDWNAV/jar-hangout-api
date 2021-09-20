@@ -6,13 +6,17 @@ const discord = require("./stratigies/discordStrategy");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const session = require("express-session");
+const { uri } = require("./config").mongoose;
 
-mongoose.connect("mongodb+srv://XxNAVxX:icandab1@navs-db.jlmpj.mongodb.net/discord-dashboard", {
+mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false
 });
- 
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 app.use(session({
   secret: "secret",
   cookie: {

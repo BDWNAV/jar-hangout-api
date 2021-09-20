@@ -4,5 +4,6 @@ const discord = require("./discord");
 
 router.use('/auth', auth);
 router.use('/auth/discord/redirect', auth)
+router.use('/discord', discord);
 
 module.exports = router;

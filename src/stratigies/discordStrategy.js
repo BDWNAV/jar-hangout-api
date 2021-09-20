@@ -15,13 +15,13 @@ passport.deserializeUser(async (discordId, done) => {
     console.log(error);
     done(err, null);
   }
-})
+});
 
 passport.use(new DiscordStrategy({
   clientID: config.clientId,
   clientSecret: config.clientSecret,
   callbackURL: "http://localhost:3001/api/auth/discord/redirect",
-  scope: ["identify"]
+  scope: ["identify", "email", "guilds.join"]
 }, async (accessToken, refreshToken, profile, done) => {
   console.log(profile);
 
@@ -30,7 +30,7 @@ passport.use(new DiscordStrategy({
       username: profile.username,
       discriminator: profile.discriminator
     }, { new: true });
-  
+
     if(findUser) {
       console.log("The user was found.");
       return done(null, findUser);
