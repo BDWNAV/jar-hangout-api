@@ -66,6 +66,7 @@
     "mquery": "^3.2.5",
     "ms": "^2.0.0",
     "negotiator": "^0.6.2",
+    "nodemailer": "^6.6.3",
     "oauth": "^0.9.15",
     "on-finished": "^2.3.0",
     "on-headers": "^1.0.2",

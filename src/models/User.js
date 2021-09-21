@@ -6,6 +6,10 @@ const userSchema = new mongoose.Schema({
     required: true, 
     unique: true
   },
+  email: {
+    type: String,
+    required: true
+  },
   username: {
     type: String,
     required: true
@@ -13,7 +17,7 @@ const userSchema = new mongoose.Schema({
   discriminator: {
     type: String,
     required: true
-  }
+  },
 });
 
 module.exports = mongoose.model("User", userSchema);

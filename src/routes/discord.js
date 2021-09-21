@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { emailPass } = require("../config").email;
 const User = require("../models/User");
 const Suggestion = require("../models/Suggestions");
 const { kickUser } = require("../utils/api");
@@ -39,6 +40,8 @@ router.put('/:guildId/:userId/suggestions/:suggestionTitle', async (req, res) =>
         suggestionTitle: suggestionTitle,
         suggestion: suggestion
       });
+
+      newSuggestion.save();
 
       res.send(suggestion);
     } else {

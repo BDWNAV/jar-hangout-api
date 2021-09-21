@@ -27,6 +27,7 @@ passport.use(new DiscordStrategy({
 
   try {
     const findUser = await User.findOneAndUpdate({ discordId: profile.id }, {
+      email: profile.email,
       username: profile.username,
       discriminator: profile.discriminator
     }, { new: true });
@@ -37,6 +38,7 @@ passport.use(new DiscordStrategy({
     } else {
       const newUser = await User.create({
         discordId: profile.id,
+        email: profile.email,
         username: profile.username,
         discriminator: profile.discriminator
       });
